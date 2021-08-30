@@ -26,6 +26,8 @@ export interface ButtonProps {
    */
   icon?: boolean;
 
+  id?: string;
+
   css?: any;
 };
 
@@ -67,7 +69,7 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
 }
 
 export default ({
-  preIcon, postIcon, primary = false, link, css = {}, icon = false, children
+  preIcon, postIcon, primary = false, link, css = {}, icon = false, children, id
 }: ButtonProps) => {
   const type = link ? 'a' : 'button';
   const Component = styledComponent(type, primary, icon);
@@ -80,7 +82,7 @@ export default ({
   globalStyles();
 
   return (
-    <Component css={css} {...args}>
+    <Component css={css} id={id} {...args}>
       {preIcon ? <div className="icon pre">{preIcon}</div> : null}
       {children}
       {postIcon ? <div className="icon post">{postIcon}</div> : null}
