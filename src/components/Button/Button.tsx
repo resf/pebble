@@ -28,6 +28,8 @@ export interface ButtonProps {
 
   id?: string;
 
+  centered?: boolean;
+
   css?: any;
 };
 
@@ -55,6 +57,8 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
     color: primary ? '#fff' : '#000',
     fontWeight: primary ? 'bold' : 'normal',
     textDecoration: 'none',
+
+    justifyContent: 'space-around',
     
     '& .icon': {
       display: 'flex',
@@ -83,9 +87,11 @@ export default ({
 
   return (
     <Component css={css} id={id} {...args}>
-      {preIcon ? <div className="icon pre">{preIcon}</div> : null}
-      {children}
-      {postIcon ? <div className="icon post">{postIcon}</div> : null}
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {preIcon ? <div className="icon pre">{preIcon}</div> : null}
+        {children}
+        {postIcon ? <div className="icon post">{postIcon}</div> : null}
+      </div>
     </Component>
   );
 };

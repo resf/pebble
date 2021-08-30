@@ -8,6 +8,7 @@ export interface TopLevelLinkProps {
 
   label: string;
   href?: string;
+  mobile?: boolean;
   onClick?: () => void;
 }
 
@@ -19,6 +20,15 @@ const LinkWrapper = styled('a', {
   textDecoration: 'none',
   marginRight: '24px',
 
+  '&.mobile': {
+    width: '100%',
+    justifyContent: 'space-between',
+
+    marginRight: '0',
+    marginBottom: '24px',
+    fontSize: '18px',
+  },
+
   '& .icon': {
     marginTop: '2px',
     marginLeft: '4px',
@@ -27,15 +37,16 @@ const LinkWrapper = styled('a', {
   },
 
   '&:last-child': {
-    marginRight: '0'
+    marginRight: '0',
+    marginBottom: '0'
   }
 });
 
-export default ({ id, label, onClick, href }: TopLevelLinkProps) => {
+export default ({ id, label, onClick, href, mobile }: TopLevelLinkProps) => {
   globalStyles();
 
   return (
-    <LinkWrapper id={id} href={href} onClick={onClick}>
+    <LinkWrapper className={mobile ? "mobile" : undefined} id={id} href={href} onClick={onClick}>
       {label}
       {onClick ? <div className="icon"><ChevronDownIcon /></div> : null}
     </LinkWrapper>
