@@ -32,7 +32,7 @@ const styledComponent = (type: 'a' | 'button', primary: boolean) => {
     border: '1px solid',
     borderColor: primary ? '#10B981' : 'rgba(0, 0, 0, 0.18)',
     borderRadius: '0',
-    backgroundColor: primary ? '#10B981' : '',
+    backgroundColor: primary ? '#10B981' : '#fff',
     color: primary ? '#fff' : '#000',
     fontWeight: primary ? 'bold' : 'normal',
   });
