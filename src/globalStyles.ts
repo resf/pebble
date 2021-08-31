@@ -6,7 +6,8 @@ export default globalCss({
     'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap'
   ],
   '*': {
-    fontFamily: '"Red Hat Text", sans-serif'
+    fontFamily: '"Red Hat Text", sans-serif',
+    boxSizing: 'border-box',
   },
   body: {
     margin: '0',

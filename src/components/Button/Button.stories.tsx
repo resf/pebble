@@ -2,13 +2,14 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Button, { ButtonProps } from './Button';
 import { ChatAlt2Icon, ArrowNarrowRightIcon } from '@heroicons/react/outline';
+import Styler from '../Styler/Styler';
 
 export default {
   title: "Components/Button",
   component: Button,
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
+const Template: Story<ButtonProps> = (args) => <Styler><Button {...args} /></Styler>
 
 export const Standard = Template.bind({});
 Standard.args = { primary: false, children: "Submit" };

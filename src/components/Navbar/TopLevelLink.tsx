@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/outline';
 import { styled } from '@stitches/react';
 import React from 'react';
 import globalStyles from '../../globalStyles';
@@ -19,6 +19,9 @@ const LinkWrapper = styled('a', {
   color: '#000',
   textDecoration: 'none',
   marginRight: '24px',
+  paddingBottom: '4px',
+  marginTop: '-5px',
+  borderBottom: '1px solid transparent',
 
   '&.mobile': {
     width: '100%',
@@ -27,6 +30,15 @@ const LinkWrapper = styled('a', {
     marginRight: '0',
     marginBottom: '24px',
     fontSize: '18px',
+
+    '& .icon': {
+      height: '18px',
+      width: '18px'
+    }
+  },
+
+  '&.has-onclick': {
+    cursor: 'pointer'
   },
 
   '& .icon': {
@@ -39,16 +51,37 @@ const LinkWrapper = styled('a', {
   '&:last-child': {
     marginRight: '0',
     marginBottom: '0'
+  },
+
+  '&:hover': {
+    paddingBottom: '4px',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.6)'
   }
 });
 
 export default ({ id, label, onClick, href, mobile }: TopLevelLinkProps) => {
   globalStyles();
 
+  let classes = [];
+  let moreIcon = <ChevronDownIcon />;
+
+  if (mobile) {
+    classes.push('mobile');
+    moreIcon = <ChevronRightIcon />;
+  }
+
+  if (onClick) classes.push('has-onclick');
+
   return (
-    <LinkWrapper className={mobile ? "mobile" : undefined} id={id} href={href} onClick={onClick}>
+    <LinkWrapper className={classes.join(' ')} id={id} href={href} onClick={onClick}>
       {label}
-      {onClick ? <div className="icon"><ChevronDownIcon /></div> : null}
+      {
+        onClick ?
+          (
+            <div className="icon">{moreIcon}</div>
+          ) :
+          null
+      }
     </LinkWrapper>
   );
 }

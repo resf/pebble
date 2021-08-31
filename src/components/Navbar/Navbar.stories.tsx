@@ -2,13 +2,14 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Navbar, { NavbarProps } from './Navbar';
 import { ChatAlt2Icon } from '@heroicons/react/outline';
+import Styler from '../Styler/Styler';
 
 export default {
   title: "Components/Navbar",
   component: Navbar,
 } as Meta;
 
-const Template: Story<NavbarProps> = (args) => <Navbar {...args} />
+const Template: Story<NavbarProps> = (args) => <Styler><Navbar {...args} /></Styler>;
 
 export const TopLevel = Template.bind({});
 TopLevel.args = {
