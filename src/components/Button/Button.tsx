@@ -51,7 +51,7 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
     padding: icon ? '10px' : '0 24px',
 
     border: '1px solid',
-    borderColor: primary ? '#10B981' : 'rgba(0, 0, 0, 0.18)',
+    borderColor: primary ? '#10B981' : '#E1E1E1',
     borderRadius: '0',
     backgroundColor: primary ? '#10B981' : '#fff',
     color: primary ? '#fff' : '#000',
@@ -59,6 +59,9 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
     textDecoration: 'none',
 
     justifyContent: 'space-around',
+
+    transition: '.1s ease',
+    transitionProperty: 'background-color, color',
     
     '& .icon': {
       display: 'flex',
@@ -68,6 +71,11 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
 
       '&.pre': { marginRight: '10px' },
       '&.post': { marginLeft: '10px' },
+    },
+
+    '&:hover': {
+      backgroundColor: primary ? '#059669' : '#E1E1E1',
+      borderColor: primary ? '#059669' : '#E1E1E1'
     }
   });
 }
@@ -87,7 +95,7 @@ export default ({
 
   return (
     <Component css={css} id={id} {...args}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
         {preIcon ? <div className="icon pre">{preIcon}</div> : null}
         {children}
         {postIcon ? <div className="icon post">{postIcon}</div> : null}
