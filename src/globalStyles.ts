@@ -1,6 +1,7 @@
 import { globalCss } from '@stitches/react';
 
 export default globalCss({
+  /* @ts-ignore */
   '@import': [
     'https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap',
     'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap'
