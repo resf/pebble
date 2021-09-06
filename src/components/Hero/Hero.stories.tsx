@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Hero, { HeroProps } from './Hero';
-import Styler from '../Styler/Styler';
+import { Hero, HeroProps } from './Hero';
+import {Styler from '../Styler/Styler';
 import { ArrowRightIcon } from '@heroicons/react/outline';
 
 export default {

@@ -1,4 +1,5 @@
-export * as Button from './components/Button';
-export * as Hero from './components/Hero';
-export * as Navbar from './components/Navbar';
-export * as Styler from './components/Styler';
+export * from './components/Button';
+export * from './components/Hero';
+export * from './components/Navbar';
+export * from './components/SubNavbar';
+export * from './components/Styler';

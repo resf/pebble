@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Navbar, { NavbarProps } from './Navbar';
+import Navbar, { NavbarProps } from '.';
 import { ChatAlt2Icon } from '@heroicons/react/outline';
 import Styler from '../Styler/Styler';
 

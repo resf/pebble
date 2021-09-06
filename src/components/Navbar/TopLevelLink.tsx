@@ -1,15 +1,16 @@
-import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, XIcon } from '@heroicons/react/outline';
 import { styled } from '@stitches/react';
-import React from 'react';
-import globalStyles from '../../globalStyles';
+import React, { forwardRef, MutableRefObject, useEffect, useRef, useState } from 'react';
+import { LinkDropdownList, LinkDropdownListProps } from './LinkDropdownList';
 
 export interface TopLevelLinkProps {
   id?: string;
 
+  dropdown?: LinkDropdownListProps;
+
   label: string;
   href?: string;
   mobile?: boolean;
-  onClick?: () => void;
 }
 
 const LinkWrapper = styled('a', {
@@ -19,9 +20,14 @@ const LinkWrapper = styled('a', {
   color: '#000',
   textDecoration: 'none',
   marginRight: '24px',
-  paddingBottom: '4px',
+  paddingBottom: '2px',
   marginTop: '-5px',
   borderBottom: '1px solid transparent',
+  userSelect: 'none',
+
+  '@media (prefers-color-scheme: dark)': {
+    color: '#fff'
+  },
 
   '&.mobile': {
     width: '100%',
@@ -31,18 +37,23 @@ const LinkWrapper = styled('a', {
     marginBottom: '24px',
     fontSize: '18px',
 
+    '&:hover': {
+      paddingBottom: '2px',
+      borderBottom: '1px solid transparent',
+    },
+
     '& .icon': {
       height: '18px',
       width: '18px'
     }
   },
 
-  '&.has-onclick': {
+  '&.has-items': {
     cursor: 'pointer'
   },
 
   '& .icon': {
-    marginTop: '2px',
+    marginTop: '4px',
     marginLeft: '4px',
     height: '13px',
     width: '13px'
@@ -54,34 +65,55 @@ const LinkWrapper = styled('a', {
   },
 
   '&:hover': {
-    paddingBottom: '4px',
+    paddingBottom: '2px',
     borderBottom: '1px solid rgba(0, 0, 0, 0.6)'
   }
 });
 
-export default ({ id, label, onClick, href, mobile }: TopLevelLinkProps) => {
-  globalStyles();
+const useOutside = (ref: MutableRefObject<any>, setOpen: React.Dispatch<React.SetStateAction<boolean>>) => {
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [ ref ]);
+}
+
+export default ({ id, label, dropdown, href, mobile }: TopLevelLinkProps) => {
+  const [ isOpen, setOpen ] = useState(false);
 
   let classes = [];
   let moreIcon = <ChevronDownIcon />;
+  if (isOpen) moreIcon = <ChevronUpIcon />;
 
   if (mobile) {
     classes.push('mobile');
     moreIcon = <ChevronRightIcon />;
+    if (isOpen) moreIcon = <XIcon />;
   }
 
-  if (onClick) classes.push('has-onclick');
+  if (dropdown) classes.push('has-items');
+
+  const itemRef = useRef(null);
+  if (dropdown) useOutside(itemRef, setOpen);
 
   return (
-    <LinkWrapper className={classes.join(' ')} id={id} href={href} onClick={onClick}>
-      {label}
-      {
-        onClick ?
-          (
-            <div className="icon">{moreIcon}</div>
-          ) :
-          null
-      }
-    </LinkWrapper>
+    <>
+      <LinkWrapper className={classes.join(' ')} id={id} href={href} onClick={() => setOpen(!isOpen)}>
+        {label}
+        {
+          dropdown ?
+            (
+              <div className="icon">{moreIcon}</div>
+            ) :
+            null
+        }
+      </LinkWrapper>
+      { dropdown ? <LinkDropdownList ref={itemRef} open={isOpen} mobile={mobile} sections={dropdown.sections} /> : null }
+    </>
   );
 }

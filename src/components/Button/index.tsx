@@ -26,6 +26,8 @@ export interface ButtonProps {
    */
   icon?: boolean;
 
+  postText?: string;
+
   id?: string;
 
   centered?: boolean;
@@ -73,6 +75,12 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
       '&.post': { marginLeft: '10px' },
     },
 
+    '& .post-text': {
+      marginLeft: '10px',
+      fontWeight: 'normal',
+      color: primary ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)'
+    },
+
     '&:hover': {
       backgroundColor: primary ? '#059669' : '#E1E1E1',
       borderColor: primary ? '#059669' : '#E1E1E1'
@@ -80,8 +88,9 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
   });
 }
 
-export default ({
-  preIcon, postIcon, primary = false, link, css = {}, icon = false, children, id
+export const Button = ({
+  preIcon, postIcon, primary = false, link, css = {}, icon = false, children, id,
+  postText
 }: ButtonProps) => {
   const type = link ? 'a' : 'button';
   const Component = styledComponent(type, primary, icon);
@@ -91,13 +100,12 @@ export default ({
     args = { href: link };
   }
 
-  globalStyles();
-
   return (
     <Component css={css} id={id} {...args}>
       <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
         {preIcon ? <div className="icon pre">{preIcon}</div> : null}
         {children}
+        {postText ? <span className="post-text">{postText}</span> : null }
         {postIcon ? <div className="icon post">{postIcon}</div> : null}
       </div>
     </Component>
