@@ -9,23 +9,23 @@ const LinkComponent = styled('a', {
   borderBottom: '1px solid transparent',
 
   '&.has-onclick': {
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
 
   '& .icon': {
     marginTop: '4px',
     marginLeft: '4px',
     height: '13px',
-    width: '13px'
+    width: '13px',
   },
 
   '&:last-child': {
-    marginRight: '0'
+    marginRight: '0',
   },
 
   '&:hover, &.active': {
-    borderBottom: '1px solid rgba(0, 0, 0, 0.6)'
-  }
+    borderBottom: '1px solid rgba(0, 0, 0, 0.6)',
+  },
 });
 
 export interface LinkProps {
@@ -34,7 +34,7 @@ export interface LinkProps {
   id?: string;
   onClick?: unknown;
   active?: boolean;
-};
+}
 
 export const Link = ({ label, href, id, onClick, active }: LinkProps) => {
   let moreIcon = <ChevronDownIcon />;
@@ -46,13 +46,7 @@ export const Link = ({ label, href, id, onClick, active }: LinkProps) => {
   return (
     <LinkComponent className={classes.join(' ')} id={id} href={href}>
       {label}
-      {
-        onClick ?
-          (
-            <div className="icon">{moreIcon}</div>
-          ) :
-          null
-      }
+      {onClick ? <div className="icon">{moreIcon}</div> : null}
     </LinkComponent>
   );
 };

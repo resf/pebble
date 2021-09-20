@@ -3,23 +3,15 @@
 Pebble is the upcoming UI design kit for the RESF's websites, and uses a modern
 UI styling.
 
-
 ## Development
 
-
-
-
 ## Building
-
-
-
 
 ## Contributing
 
 We welcome your contributions! Please refer to our
 [contribution policy](./CONTRIBUTING.md) prior to submitting pull requests or
 issues.
-
 
 ## License
 

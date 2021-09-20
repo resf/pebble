@@ -33,16 +33,20 @@ export interface ButtonProps {
   centered?: boolean;
 
   css?: any;
-};
+}
 
 /**
  * Generates a styled component to use as a button.
  * @param type The component to generate as a button
  * @returns StyledComponent
  */
-const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) => {
+const styledComponent = (
+  type: 'a' | 'button',
+  primary: boolean,
+  icon: boolean
+) => {
   return styled(type, {
-    // base 
+    // base
     display: type == 'a' ? 'inline-flex' : 'flex',
     alignItems: 'center',
 
@@ -64,7 +68,7 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
 
     transition: '.1s ease',
     transitionProperty: 'background-color, color',
-    
+
     '& .icon': {
       display: 'flex',
       alignItems: 'center',
@@ -78,19 +82,26 @@ const styledComponent = (type: 'a' | 'button', primary: boolean, icon: boolean) 
     '& .post-text': {
       marginLeft: '10px',
       fontWeight: 'normal',
-      color: primary ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)'
+      color: primary ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
     },
 
     '&:hover': {
       backgroundColor: primary ? '#059669' : '#E1E1E1',
-      borderColor: primary ? '#059669' : '#E1E1E1'
-    }
+      borderColor: primary ? '#059669' : '#E1E1E1',
+    },
   });
-}
+};
 
 export const Button = ({
-  preIcon, postIcon, primary = false, link, css = {}, icon = false, children, id,
-  postText
+  preIcon,
+  postIcon,
+  primary = false,
+  link,
+  css = {},
+  icon = false,
+  children,
+  id,
+  postText,
 }: ButtonProps) => {
   const type = link ? 'a' : 'button';
   const Component = styledComponent(type, primary, icon);
@@ -102,10 +113,17 @@ export const Button = ({
 
   return (
     <Component css={css} id={id} {...args}>
-      <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
+        }}
+      >
         {preIcon ? <div className="icon pre">{preIcon}</div> : null}
         {children}
-        {postText ? <span className="post-text">{postText}</span> : null }
+        {postText ? <span className="post-text">{postText}</span> : null}
         {postIcon ? <div className="icon post">{postIcon}</div> : null}
       </div>
     </Component>

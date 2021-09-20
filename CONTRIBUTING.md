@@ -65,4 +65,3 @@ Finally, you must understand & acknowledge that any changes you submit into our
 project's version control history are licensed under the BSD 3-clause license,
 the terms of which are described fully in the [LICENSE](./LICENSE) file, located
 at the root of this repository.
-

@@ -10,7 +10,7 @@ export interface SubNavbarProps {
   links?: LinkProps[];
   rightLinks?: LinkProps[];
   ctas?: ButtonProps[];
-};
+}
 
 const NavbarParent = styled('div', {
   height: '74px',
@@ -28,7 +28,7 @@ const NavbarParent = styled('div', {
 
   '@media (prefers-color-scheme: dark)': {
     background: '#111',
-    color: '#efefef'
+    color: '#efefef',
   },
 });
 
@@ -44,22 +44,22 @@ const NavbarWrapper = styled('div', {
   '& .ctas a, & .ctas button': {
     marginLeft: '24px',
     '&:first-child': {
-      marginLeft: '0'
-    }
+      marginLeft: '0',
+    },
   },
 
   '& > *': {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   '& .left .logo': {
-    marginRight: '24px'
+    marginRight: '24px',
   },
 
   '@media (max-width: 1100px)': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 const MobileNavbarWrapper = styled('div', {
@@ -69,8 +69,8 @@ const MobileNavbarWrapper = styled('div', {
   width: '100%',
 
   '@media(max-width: 1100px)': {
-    display: 'flex'
-  }
+    display: 'flex',
+  },
 });
 
 const MobileDropdown = styled('div', {
@@ -85,7 +85,7 @@ const MobileDropdown = styled('div', {
   display: 'none',
 
   '&.open': {
-    display: 'block'
+    display: 'block',
   },
   '& .main-nav': {
     display: 'flex',
@@ -94,55 +94,95 @@ const MobileDropdown = styled('div', {
     '& a': {
       marginBottom: '8px',
       '&.active': { fontWeight: 'bold' },
-      '&:last-child': { marginBottom: '0' }
-    }
-  }
+      '&:last-child': { marginBottom: '0' },
+    },
+  },
 });
 
-export const SubNavbar = ({ logo, links = [], rightLinks = [], ctas = [] }: SubNavbarProps) => {
-  const [ isOpen, setIsOpen ] = useState(false);
+export const SubNavbar = ({
+  logo,
+  links = [],
+  rightLinks = [],
+  ctas = [],
+}: SubNavbarProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <NavbarParent>
         <NavbarWrapper>
           <div className="left">
-            { 
-              logo ? (
-                <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-                  {logo}
-                </div>
-              ) : null
-            }
+            {logo ? (
+              <div
+                className="logo"
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
+                {logo}
+              </div>
+            ) : null}
           </div>
 
-          <div className="links" style={{ display: 'flex', justifyContent: 'center' }}>
-            {links.map((v, i) => <Link id={`nav_sublevel_link-${i}`} {...v} />)}
+          <div
+            className="links"
+            style={{ display: 'flex', justifyContent: 'center' }}
+          >
+            {links.map((v, i) => (
+              <Link id={`nav_sublevel_link-${i}`} {...v} />
+            ))}
           </div>
 
-          <div className="right" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div
+            className="right"
+            style={{ display: 'flex', justifyContent: 'flex-end' }}
+          >
             <div className="links">
-              {rightLinks.map((v, i) => <Link id={`nav_sublevel_right-link-${i}`} {...v} />)}
+              {rightLinks.map((v, i) => (
+                <Link id={`nav_sublevel_right-link-${i}`} {...v} />
+              ))}
             </div>
-            <div className="ctas" style={{ marginLeft: '24px', display: 'flex' }}>
-              {ctas.map((v, i) => (<Button id={`cta-${i}`} {...v} />))}
+            <div
+              className="ctas"
+              style={{ marginLeft: '24px', display: 'flex' }}
+            >
+              {ctas.map((v, i) => (
+                <Button id={`cta-${i}`} {...v} />
+              ))}
             </div>
           </div>
         </NavbarWrapper>
         <MobileNavbarWrapper>
           <div className="left">
-            { 
-              logo ? (
-                <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-                  {logo}
-                </div>
-              ) : null
-            }
+            {logo ? (
+              <div
+                className="logo"
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
+                {logo}
+              </div>
+            ) : null}
           </div>
-          <div className="right" style={{ display: 'flex', alignItems: 'center' }}>
-            <button onClick={() => setIsOpen(!isOpen)} style={{ display: 'inline-flex', padding: '0', background: 'none', border: 'none' }}>
+          <div
+            className="right"
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              style={{
+                display: 'inline-flex',
+                padding: '0',
+                background: 'none',
+                border: 'none',
+              }}
+            >
               Menu
-              <ChevronDownIcon style={{ width: '18px', height: '18px', marginLeft: '4px', marginTop: '2px' }} />
+              <ChevronDownIcon
+                style={{
+                  width: '18px',
+                  height: '18px',
+                  marginLeft: '4px',
+                  marginTop: '2px',
+                }}
+              />
             </button>
           </div>
         </MobileNavbarWrapper>
@@ -150,10 +190,16 @@ export const SubNavbar = ({ logo, links = [], rightLinks = [], ctas = [] }: SubN
       <MobileDropdown className={isOpen ? 'open' : undefined}>
         <div className="main-nav">
           {links.map((link, i) => (
-            <a href={link.href} className={link.active ? 'active' : undefined} key={i}>{link.label}</a>
+            <a
+              href={link.href}
+              className={link.active ? 'active' : undefined}
+              key={i}
+            >
+              {link.label}
+            </a>
           ))}
         </div>
       </MobileDropdown>
     </>
   );
-}
+};

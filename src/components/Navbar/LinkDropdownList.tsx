@@ -1,5 +1,11 @@
 import { styled } from '@stitches/react';
-import React, { forwardRef, MutableRefObject, ReactNode, useEffect, useState } from 'react';
+import React, {
+  forwardRef,
+  MutableRefObject,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 
 export interface LinkProps {
   label: string;
@@ -39,10 +45,13 @@ const StyledComponent = styled('div', {
       '& li': {
         paddingBottom: '2px',
         width: 'max-content',
-        '&:hover': { paddingBottom: '1px', borderBottom: '1px solid rgba(0, 0, 0, 0.6)' },
-        '&:last-child': { marginBottom: '0' }
-      }
-    }
+        '&:hover': {
+          paddingBottom: '1px',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.6)',
+        },
+        '&:last-child': { marginBottom: '0' },
+      },
+    },
   },
   '&.open': {
     display: 'flex',
@@ -54,32 +63,42 @@ const StyledComponent = styled('div', {
     borderTop: '1px solid #E1E1E1',
     flexDirection: 'column',
     '& .section': {
-      marginBottom: '24px'
-    }
+      marginBottom: '24px',
+    },
+  },
+});
+
+export const LinkDropdownList = forwardRef(
+  ({ sections, open, mobile }: LinkDropdownListProps, ref) => {
+    let classes = [];
+    if (open) classes.push('open');
+    if (mobile) classes.push('mobile');
+
+    return (
+      /** @ts-ignore */
+      <StyledComponent className={classes.join(' ')} ref={ref}>
+        {sections.map((s, i) => (
+          <div className="section" key={i}>
+            <h6
+              style={{
+                fontSize: '15px',
+                marginBottom: '8px',
+                color: 'rgba(0, 0, 0, 0.6)',
+                fontWeight: 'bold',
+              }}
+            >
+              {s.title}
+            </h6>
+            <ul>
+              {s.items.map((l, i) => (
+                <li key={i} style={{ marginBottom: '4px' }}>
+                  <a href={l.href}>{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </StyledComponent>
+    );
   }
-});
-
-
-export const LinkDropdownList = forwardRef(({ sections, open, mobile }: LinkDropdownListProps, ref) => { 
-  let classes = [];
-  if (open) classes.push('open');
-  if (mobile) classes.push('mobile');
-
-  return (
-    /** @ts-ignore */
-    <StyledComponent className={classes.join(' ')} ref={ref}>
-      {sections.map((s, i) => (
-        <div className="section" key={i}>
-          <h6 style={{ fontSize: '15px', marginBottom: '8px', color: 'rgba(0, 0, 0, 0.6)', fontWeight: 'bold' }}>{s.title}</h6>
-          <ul>
-          {s.items.map((l, i) => (
-            <li key={i} style={{ marginBottom: '4px' }}>
-              <a href={l.href}>{l.label}</a>
-            </li>
-          ))}
-          </ul>
-        </div>
-      ))}
-    </StyledComponent>
-  );
-});
+);

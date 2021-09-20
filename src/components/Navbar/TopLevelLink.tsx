@@ -1,6 +1,17 @@
-import { ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, XIcon } from '@heroicons/react/outline';
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+  XIcon,
+} from '@heroicons/react/outline';
 import { styled } from '@stitches/react';
-import React, { forwardRef, MutableRefObject, useEffect, useRef, useState } from 'react';
+import React, {
+  forwardRef,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { LinkDropdownList, LinkDropdownListProps } from './LinkDropdownList';
 
 export interface TopLevelLinkProps {
@@ -26,7 +37,7 @@ const LinkWrapper = styled('a', {
   userSelect: 'none',
 
   '@media (prefers-color-scheme: dark)': {
-    color: '#fff'
+    color: '#fff',
   },
 
   '&.mobile': {
@@ -44,33 +55,36 @@ const LinkWrapper = styled('a', {
 
     '& .icon': {
       height: '18px',
-      width: '18px'
-    }
+      width: '18px',
+    },
   },
 
   '&.has-items': {
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
 
   '& .icon': {
     marginTop: '4px',
     marginLeft: '4px',
     height: '13px',
-    width: '13px'
+    width: '13px',
   },
 
   '&:last-child': {
     marginRight: '0',
-    marginBottom: '0'
+    marginBottom: '0',
   },
 
   '&:hover': {
     paddingBottom: '2px',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.6)'
-  }
+    borderBottom: '1px solid rgba(0, 0, 0, 0.6)',
+  },
 });
 
-const useOutside = (ref: MutableRefObject<any>, setOpen: React.Dispatch<React.SetStateAction<boolean>>) => {
+const useOutside = (
+  ref: MutableRefObject<any>,
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+) => {
   useEffect(() => {
     const handleClickOutside = (event: Event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -80,11 +94,11 @@ const useOutside = (ref: MutableRefObject<any>, setOpen: React.Dispatch<React.Se
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [ ref ]);
-}
+  }, [ref]);
+};
 
 export default ({ id, label, dropdown, href, mobile }: TopLevelLinkProps) => {
-  const [ isOpen, setOpen ] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   let classes = [];
   let moreIcon = <ChevronDownIcon />;
@@ -103,17 +117,23 @@ export default ({ id, label, dropdown, href, mobile }: TopLevelLinkProps) => {
 
   return (
     <>
-      <LinkWrapper className={classes.join(' ')} id={id} href={href} onClick={() => setOpen(!isOpen)}>
+      <LinkWrapper
+        className={classes.join(' ')}
+        id={id}
+        href={href}
+        onClick={() => setOpen(!isOpen)}
+      >
         {label}
-        {
-          dropdown ?
-            (
-              <div className="icon">{moreIcon}</div>
-            ) :
-            null
-        }
+        {dropdown ? <div className="icon">{moreIcon}</div> : null}
       </LinkWrapper>
-      { dropdown ? <LinkDropdownList ref={itemRef} open={isOpen} mobile={mobile} sections={dropdown.sections} /> : null }
+      {dropdown ? (
+        <LinkDropdownList
+          ref={itemRef}
+          open={isOpen}
+          mobile={mobile}
+          sections={dropdown.sections}
+        />
+      ) : null}
     </>
   );
-}
+};

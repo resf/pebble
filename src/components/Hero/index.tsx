@@ -9,7 +9,7 @@ export interface HeroProps {
   illustration?: ReactNode | ReactNode[];
   ctas?: ButtonProps[];
   id?: string;
-};
+}
 
 const Component = styled('div', {
   display: 'grid',
@@ -27,8 +27,8 @@ const Component = styled('div', {
   '& .ctas a, & .ctas button': {
     marginRight: '24px',
     '&:last-child': {
-      marginRight: '0'
-    }
+      marginRight: '0',
+    },
   },
 
   '& > .left, & > .right': {
@@ -42,26 +42,26 @@ const Component = styled('div', {
       marginLeft: '0',
       '& h1': {
         maxWidth: '80%',
-      }
+      },
     },
     '&.right': {
       marginRight: '0',
       display: 'flex',
-      justifyContent: 'space-around'
-    }
+      justifyContent: 'space-around',
+    },
   },
 
   '& h1': {
     fontWeight: 'bold',
     fontSize: '36px',
     lineHeight: '1.2',
-    margin: '0 0 21px 0'
+    margin: '0 0 21px 0',
   },
   '& h2': {
     margin: '0 0 21px 0',
     fontWeight: 'normal',
     fontSize: '24px',
-    lineHeight: '1.2'
+    lineHeight: '1.2',
   },
 
   '@media (max-width: 1100px)': {
@@ -74,43 +74,48 @@ const Component = styled('div', {
       '& h1': {
         margin: '0 auto 21px auto',
         fontSize: '28px',
-        maxWidth: '100%'
+        maxWidth: '100%',
       },
       gridRow: '2',
       marginBottom: '24px',
       '& .ctas': {
-        flexDirection: 'column'
+        flexDirection: 'column',
       },
       '& .ctas a, & .ctas button': {
         margin: '24px 12px',
         '&:first-child': { marginLeft: '0' },
-        '&:last-child': { marginRight: '0' }
-      }
+        '&:last-child': { marginRight: '0' },
+      },
     },
     '& .right': {
       gridRow: '1',
-      marginBottom: '24px'
-    }
-  }
+      marginBottom: '24px',
+    },
+  },
 });
 
-export const Hero = ({ headline, subheader, ctas = [], background, illustration, id }: HeroProps) => {
+export const Hero = ({
+  headline,
+  subheader,
+  ctas = [],
+  background,
+  illustration,
+  id,
+}: HeroProps) => {
   return (
     <Component css={{ background }} id={id}>
       <div className="left">
         <h1>{headline}</h1>
-        { subheader ? <h2>{subheader}</h2> : null}
-        {
-          ctas ?
-            <div className="ctas">
-              {ctas.map((v, i) => (<Button id={`cta-${i}`} {...v} />))}
-            </div> :
-            null
-        }
+        {subheader ? <h2>{subheader}</h2> : null}
+        {ctas ? (
+          <div className="ctas">
+            {ctas.map((v, i) => (
+              <Button id={`cta-${i}`} {...v} />
+            ))}
+          </div>
+        ) : null}
       </div>
-      <div className="right">
-        {illustration}
-      </div>
+      <div className="right">{illustration}</div>
     </Component>
-  )
+  );
 };
