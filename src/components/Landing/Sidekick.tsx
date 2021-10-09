@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { Flex } from '..'
+import { Flex } from '../..'
 
 interface Props {
   /** The title */
@@ -16,20 +16,30 @@ interface Props {
    * title, subtitle and CTAs
    */
   children?: ReactNode | ReactNode[]
+
+  /**
+   * Whether or not the layout should be content|text instead of text|content.
+   */
+  flipped?: boolean
 }
 
 /**
  * A landing page hero section.
  */
-export const Hero = ({ children, title, subtitle, buttons }: Props) => {
+export const Sidekick = ({ children, title, subtitle, buttons, flipped }: Props) => {
+  const classes = ['sidekick']
+
+  if (flipped) classes.push('flipped')
+
   return (
-    <div className='hero'>
+    <div className={classes.join(' ')}>
       <div className="text">
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
-        <Flex gap center children={buttons} />
+        {buttons ? <Flex gap center children={buttons} /> : null}
       </div>
       <div className='content'>{children}</div>
     </div>
   )
 }
+

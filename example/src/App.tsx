@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ArrowNarrowRightIcon, ChatAlt2Icon, CodeIcon, DownloadIcon } from '@heroicons/react/outline'
+import { ArrowNarrowRightIcon, CodeIcon } from '@heroicons/react/outline'
 
-import { Button, Container, Flex, Hero, Navbar, NavbarLink, PageWrapper, Spacer } from '@resf/pebble'
+import { Button, CenterText, Container, Hero, Navbar, NavbarLink, PageWrapper, Sidekick, Spacer } from '@resf/pebble'
 import '@resf/pebble/dist/styles.css';
 
 const App = () => {
@@ -38,53 +38,30 @@ const App = () => {
             <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
           </Hero>
           <Spacer />
-          <Flex gap>
-            <Button primary>
-              Save
-              <DownloadIcon width="18" height="18" />
-            </Button>
-
-            <Button primary small>Do the thing</Button>
-
-            <Button small>Do the thing</Button>
-
-            <Button href="/">
-              Link!
-              <ArrowNarrowRightIcon height="14" width="14" />
-            </Button>
-
-            <Button small href="/">
-              <ChatAlt2Icon height="14" width="14" />
-              Join the Discussion
-            </Button>
-          </Flex>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
+          <CenterText
+            header="A drop-in replacement for your workloads."
+            content="Rocky Linux aims to be 100% bug-for-bug compatible with the widely-trusted and highly stable RHEL®, so you can be confident in your servers."
+            link={{ label: 'Learn More', href: '/' }} />
+          <Spacer />
+          <Sidekick
+            title="Stability guaranteed."
+            subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
+            <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
+          </Sidekick>
+          <Spacer />
+          <Sidekick
+            flipped
+            title="Stability guaranteed."
+            subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
+            <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
+          </Sidekick>
+          <Spacer />
+          <Sidekick
+            title="Stability guaranteed."
+            subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
+            <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
+          </Sidekick>
+          <Spacer />
         </Container>
       </PageWrapper>
     </div>

@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [ 'Red Hat Text', 'sans-serif' ],
-      mono: [ 'Overpass Mono', 'monospace' ]
+      mono: [ 'Overpass Mono', 'monospace' ],
+      display: [ 'Red Hat Display', 'sans-serif' ]
     },
     extends: {
       colors: {
