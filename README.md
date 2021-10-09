@@ -25,4 +25,6 @@ const Example = () => {
 
 ## License
 
-BSD-3-Clause © [The Rocky Enterprise Software Foundation](https://github.com/resf)
+This project, and the source code within it, as well as all produced
+distributions of it, are licensed purely under the BSD 3-Clause license, a copy
+of which can be seen in the accompanying [LICENSE](./LICENSE) file.
