@@ -13,15 +13,13 @@ npm install --save @resf/pebble
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from '@resf/pebble'
+import { Button } from '@resf/pebble'
 import '@resf/pebble/dist/styles.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const Example = () => {
+  return <Button small primary>Hey guys!</Button>
 }
 ```
 
