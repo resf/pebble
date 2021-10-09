@@ -16,7 +16,7 @@ npm install --save @resf/pebble
 import React, { Component } from 'react'
 
 import MyComponent from '@resf/pebble'
-import '@resf/pebble/dist/index.css'
+import '@resf/pebble/dist/styles.css'
 
 class Example extends Component {
   render() {
