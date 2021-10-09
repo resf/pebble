@@ -25,4 +25,4 @@ const Example = () => {
 
 ## License
 
-BSD-3-Clause © [resf](https://github.com/resf)
+BSD-3-Clause © [The Rocky Enterprise Software Foundation](https://github.com/resf)
