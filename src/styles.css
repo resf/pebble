@@ -9,14 +9,16 @@
   /* Buttons */
   .btn {
     @apply
-      flex h-12 px-4 rounded-none items-center border border-gray-200
-      hover:bg-gray-200 active:bg-gray-300 active:border-gray-300
-      transition-colors ease-in-out duration-100;
+      flex h-12 px-4 rounded-none items-center border border-gray-200 dark:border-gray-600
+      hover:bg-gray-200 active:bg-gray-300 active:border-gray-300 dark:active:border-gray-700
+      transition-colors ease-in-out duration-100 dark:hover:bg-gray-600 dark:active:bg-gray-700;
   }
   .btn.btn-primary {
     @apply
       bg-green-500 text-white font-medium border-green-500 hover:bg-green-600
-      hover:border-green-600 active:border-green-700 active:bg-green-700;
+      hover:border-green-600 active:border-green-700 active:bg-green-700
+      dark:bg-green-600 dark:hover:bg-green-700 dark:active:bg-green-800
+      dark:border-green-600 dark:hover:border-green-700 dark:active:border-green-800;
   }
   .btn.btn-sm {
     @apply px-4 h-8 text-sm;
@@ -25,12 +27,12 @@
   /* Navbars */
   .navbar {
     @apply
-      flex w-full h-16 px-4 items-center justify-center transition-shadow
-      duration-300 z-50 sticky bg-white top-0;
+      flex w-full h-16 px-4 items-center justify-center transition
+      duration-300 z-50 sticky bg-white dark:bg-[#111] dark:text-white top-0;
   }
   .navbar.scroll {
     @apply
-      shadow-md;
+      shadow-md dark:bg-black;
   }
 
   .navbar-inner {
@@ -41,7 +43,8 @@
   .navbar-link {
     @apply
       leading-none text-sm transition duration-200 ease-in-out border-b
-      hover:border-gray-800 pb-1 border-white;
+      hover:border-gray-800 pb-1 border-white dark:border-gray-900
+      dark:hover:border-white;
   }
 
   /* Heroes */
@@ -82,7 +85,7 @@
     @apply text-2xl lg:text-4xl mb-2 lg:mb-4 font-bold;
   }
   .hero h2 {
-    @apply text-lg mb-4 mx-auto lg:mx-0 max-w-md text-gray-500;
+    @apply text-lg mb-4 mx-auto lg:mx-0 max-w-md text-gray-500 dark:text-gray-400;
   }
 
   /* Sidekicks */
@@ -137,7 +140,7 @@
     @apply text-xl lg:text-2xl mb-2 lg:mb-4 font-bold;
   }
   .sidekick h2 {
-    @apply text-lg mb-4 mx-auto lg:mx-0 max-w-md text-gray-600;
+    @apply text-lg mb-4 mx-auto lg:mx-0 max-w-md text-gray-600 dark:text-gray-400;
   }
   .sidekick h2:last-child {
     @apply mb-0;

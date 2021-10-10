@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ArrowNarrowRightIcon, CodeIcon } from '@heroicons/react/outline'
 
-import { Button, CenterText, Container, FeatureBox, Hero, Navbar, NavbarLink, Sidekick, Spacer } from '@resf/pebble'
+import { Button, CenterText, Container, FeatureBox, Hero, Navbar, NavbarLink, PageWrapper, Sidekick, Spacer } from '@resf/pebble'
 import '@resf/pebble/dist/styles.css';
 
 const App = () => {
@@ -52,7 +52,7 @@ const App = () => {
   ];
 
   return (
-    <div id="page">
+    <PageWrapper>
       <Navbar logo={logo}>
         <NavbarLink href="/">Home</NavbarLink>
         <NavbarLink href="/">About</NavbarLink>
@@ -91,7 +91,7 @@ const App = () => {
         </Sidekick>
         <Spacer />
       </Container>
-    </div>
+    </PageWrapper>
   )
 }
 

@@ -10,11 +10,19 @@ module.exports = {
       'bg-blue-200',
       'bg-indigo-200',
       'bg-purple-200',
-      'bg-pink-200'
+      'bg-pink-200',
+      'dark:bg-gray-900',
+      'dark:bg-red-900',
+      'dark:bg-yellow-900',
+      'dark:bg-green-900',
+      'dark:bg-blue-900',
+      'dark:bg-indigo-900',
+      'dark:bg-purple-900',
+      'dark:bg-pink-900'
     ]
   },
 
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     fontFamily: {
       sans: [ 'Red Hat Text', 'sans-serif' ],
