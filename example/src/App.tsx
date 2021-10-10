@@ -2,10 +2,37 @@ import React from 'react'
 
 import { ArrowNarrowRightIcon, CodeIcon } from '@heroicons/react/outline'
 
-import { Button, CenterText, Container, Hero, Navbar, NavbarLink, Sidekick, Spacer } from '@resf/pebble'
+import { Button, CenterText, Container, FeatureBox, Hero, Navbar, NavbarLink, Sidekick, Spacer } from '@resf/pebble'
 import '@resf/pebble/dist/styles.css';
 
 const App = () => {
+  const features = [
+    {
+      name: 'Binary compatibility with RHEL',
+      description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
+      icon: <CodeIcon width="20" />,
+      color: 'red' as const
+    },
+    {
+      name: 'Binary compatibility with RHEL',
+      description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
+      icon: <CodeIcon width="20" />,
+      color: 'blue' as const
+    },
+    {
+      name: 'Binary compatibility with RHEL',
+      description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
+      icon: <CodeIcon width="20" />,
+      color: 'green' as const
+    },
+    {
+      name: 'Binary compatibility with RHEL',
+      description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
+      icon: <CodeIcon width="20" />,
+      color: 'yellow' as const
+    }
+  ];
+
   const logo = (
     <svg style={{ width: '2rem' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none">
       <path fillRule="evenodd" clipRule="evenodd" d="M4.24264 50H0V45.7574L31.7574 14L12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8H39C40.6569 8 42 9.34315 42 11V38C42 39.6569 40.6569 41 39 41C37.3431 41 36 39.6569 36 38V18.2426L4.24264 50Z" fill="white"/>
@@ -14,11 +41,11 @@ const App = () => {
   );
 
   const buttons = [
-    <Button primary href="/">
+    <Button primary href="/" key="1">
       Get started
       <ArrowNarrowRightIcon width="18" height="18" />
     </Button>,
-    <Button href="https://github.com/resf/pebble">
+    <Button href="https://github.com/resf/pebble" key="2">
       <CodeIcon width="18" height="18" />
       GitHub
     </Button>
@@ -32,7 +59,7 @@ const App = () => {
         <NavbarLink href="/">Links</NavbarLink>
         <NavbarLink href="/">Community</NavbarLink>
       </Navbar>
-      <Container>
+      <Container className="px-4">
         <Hero title="Pebble UI" subtitle="The RESF's custom UI library, built in React, built in React, built in React, built in React." buttons={buttons}>
           <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
         </Hero>
@@ -41,6 +68,8 @@ const App = () => {
           header="A drop-in replacement for your workloads."
           content="Rocky Linux aims to be 100% bug-for-bug compatible with the widely-trusted and highly stable RHEL®, so you can be confident in your servers."
           link={{ label: 'Learn More', href: '/' }} />
+        <Spacer />
+        <FeatureBox features={features} />
         <Spacer />
         <Sidekick
           title="Stability guaranteed."
