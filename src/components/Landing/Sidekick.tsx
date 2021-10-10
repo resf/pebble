@@ -26,7 +26,13 @@ interface Props {
 /**
  * A landing page hero section.
  */
-export const Sidekick = ({ children, title, subtitle, buttons, flipped }: Props) => {
+export const Sidekick = ({
+  children,
+  title,
+  subtitle,
+  buttons,
+  flipped
+}: Props) => {
   const classes = ['sidekick']
 
   if (flipped) classes.push('flipped')

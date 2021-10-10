@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ArrowNarrowRightIcon, CodeIcon } from '@heroicons/react/outline'
 
-import { Button, CenterText, Container, Hero, Navbar, NavbarLink, PageWrapper, Sidekick, Spacer } from '@resf/pebble'
+import { Button, CenterText, Container, Hero, Navbar, NavbarLink, Sidekick, Spacer } from '@resf/pebble'
 import '@resf/pebble/dist/styles.css';
 
 const App = () => {
@@ -32,38 +32,36 @@ const App = () => {
         <NavbarLink href="/">Links</NavbarLink>
         <NavbarLink href="/">Community</NavbarLink>
       </Navbar>
-      <PageWrapper>
-        <Container>
-          <Hero title="Pebble UI" subtitle="The RESF's custom UI library, built in React, built in React, built in React, built in React." buttons={buttons}>
-            <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
-          </Hero>
-          <Spacer />
-          <CenterText
-            header="A drop-in replacement for your workloads."
-            content="Rocky Linux aims to be 100% bug-for-bug compatible with the widely-trusted and highly stable RHEL®, so you can be confident in your servers."
-            link={{ label: 'Learn More', href: '/' }} />
-          <Spacer />
-          <Sidekick
-            title="Stability guaranteed."
-            subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
-            <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
-          </Sidekick>
-          <Spacer />
-          <Sidekick
-            flipped
-            title="Stability guaranteed."
-            subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
-            <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
-          </Sidekick>
-          <Spacer />
-          <Sidekick
-            title="Stability guaranteed."
-            subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
-            <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
-          </Sidekick>
-          <Spacer />
-        </Container>
-      </PageWrapper>
+      <Container>
+        <Hero title="Pebble UI" subtitle="The RESF's custom UI library, built in React, built in React, built in React, built in React." buttons={buttons}>
+          <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
+        </Hero>
+        <Spacer />
+        <CenterText
+          header="A drop-in replacement for your workloads."
+          content="Rocky Linux aims to be 100% bug-for-bug compatible with the widely-trusted and highly stable RHEL®, so you can be confident in your servers."
+          link={{ label: 'Learn More', href: '/' }} />
+        <Spacer />
+        <Sidekick
+          title="Stability guaranteed."
+          subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
+          <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
+        </Sidekick>
+        <Spacer />
+        <Sidekick
+          flipped
+          title="Stability guaranteed."
+          subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
+          <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
+        </Sidekick>
+        <Spacer />
+        <Sidekick
+          title="Stability guaranteed."
+          subtitle="Rocky Linux is built from tested, stable versions of software, with regular updates being released to keep you on top of things.">
+          <img alt="Demo" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=80" />
+        </Sidekick>
+        <Spacer />
+      </Container>
     </div>
   )
 }

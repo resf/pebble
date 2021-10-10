@@ -26,7 +26,7 @@
   .navbar {
     @apply
       flex w-full h-16 px-4 items-center justify-center transition-shadow
-      duration-300 z-50 fixed bg-white top-0;
+      duration-300 z-50 sticky bg-white top-0;
   }
   .navbar.scroll {
     @apply
@@ -137,7 +137,7 @@
     @apply text-xl lg:text-2xl mb-2 lg:mb-4 font-bold;
   }
   .sidekick h2 {
-    @apply text-lg leading-tight mb-4 mx-auto lg:mx-0 max-w-md text-gray-500;
+    @apply text-lg mb-4 mx-auto lg:mx-0 max-w-md text-gray-600;
   }
   .sidekick h2:last-child {
     @apply mb-0;
