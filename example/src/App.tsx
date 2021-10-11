@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ArrowNarrowRightIcon, CodeIcon } from '@heroicons/react/outline'
+import { ArrowNarrowRightIcon, CodeIcon, PresentationChartLineIcon, ShieldCheckIcon, UserGroupIcon } from '@heroicons/react/outline'
 
 import { Button, CenterText, Container, FeatureBox, Hero, Navbar, NavbarLink, PageWrapper, Sidekick, Spacer } from '@resf/pebble'
 import '@resf/pebble/dist/styles.css';
@@ -11,24 +11,27 @@ const App = () => {
       name: 'Binary compatibility with RHEL',
       description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
       icon: <CodeIcon width="20" />,
-      color: 'red' as const
+      color: 'red' as const,
+      link: '#'
     },
     {
-      name: 'Binary compatibility with RHEL',
-      description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
-      icon: <CodeIcon width="20" />,
-      color: 'blue' as const
+      name: 'Rock(y) Solid',
+      description: 'Rocky Linux is built with stability in mind, and never bumps major package versions, meaning you\'ll never need to worry about an update breaking compatibility with the hundreds of other packages you use.',
+      icon: <PresentationChartLineIcon width="20" />,
+      color: 'blue' as const,
+      link: '#'
     },
     {
-      name: 'Binary compatibility with RHEL',
-      description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
-      icon: <CodeIcon width="20" />,
-      color: 'green' as const
+      name: 'Secure',
+      description: 'Rocky Linux publishes its Errata for all to view, and keeps up with all the security updates affecting it, so you can quickly see if that package that had a massive vulnerability is patched on Rocky yet.',
+      icon: <ShieldCheckIcon width="20" />,
+      color: 'green' as const,
+      link: '#'
     },
     {
-      name: 'Binary compatibility with RHEL',
-      description: 'Rocky Linux is built from the same sources as Red Hat Enterprise Linux, making it incredible stable and a solid platform for stabile server workloads.',
-      icon: <CodeIcon width="20" />,
+      name: 'Always free, always open',
+      description: 'Rocky Linux is an open source project. That\'ll never change. All our sources are available on our GitLab server. So if we ever \'go rogue\' (not that we have any plans to), the community can pick up where we left off.',
+      icon: <UserGroupIcon width="20" />,
       color: 'yellow' as const
     }
   ];
