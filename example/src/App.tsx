@@ -32,7 +32,7 @@ const App = () => {
       name: 'Always free, always open',
       description: 'Rocky Linux is an open source project. That\'ll never change. All our sources are available on our GitLab server. So if we ever \'go rogue\' (not that we have any plans to), the community can pick up where we left off.',
       icon: <UserGroupIcon width="20" />,
-      color: 'yellow' as const
+      color: 'purple' as const
     }
   ];
 
