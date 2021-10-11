@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
-    "css": "tailwind --jit -c tailwind.config.js -i src/styles.css -o dist/styles.css -m",
-    "css:watch": "tailwind -w --jit -c tailwind.config.js -i src/styles.css -o dist/styles.css -m",
+    "css": "tailwind --jit -c tailwind.config.js -i src/styles.css -o dist/styles.css -m --postcss",
+    "css:watch": "tailwind -w --jit -c tailwind.config.js -i src/styles.css -o dist/styles.css -m --postcss",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build && run-s css",
     "test": "run-s test:unit test:lint test:build",
@@ -22,7 +22,7 @@
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build"
+    "predeploy": "cd example && npm install && npm run build && css"
   },
   "peerDependencies": {
     "react": "^16.0.0"
