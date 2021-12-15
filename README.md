@@ -1,3 +1,5 @@
+## This repository has been archived. We have decided not to proceed with the development of Pebble UI at this time.
+
 # @resf/pebble
 
 > Pebble is the upcoming UI design kit for the RESF&#x27;s web experiences.
