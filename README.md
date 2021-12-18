@@ -9,23 +9,6 @@
 
 ## Development
 
-You can develop Pebble using one of two methods:
-
-### With the Dockerfile (recommended)
-
-To work on them through a Dockerfile, use the Dockerfile in
-`scripts/Dockerfile.dev`. It will perform all of the steps you would have to do
-manually (`npm install` in the source and example, start the compilers, and run
-the example site) automatically, so you can focus on working instead of setting
-up the dev environment.
-
-```bash
-docker build -t pebble -f scripts/Dockerfile.dev .
-docker run --rm -p 3000:3000 -v $(pwd):/app pebble
-```
-
-### Manually, with NPM
-
 First, install the main library dependencies.
 
 ```bash

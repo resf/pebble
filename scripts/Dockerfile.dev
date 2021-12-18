@@ -1,9 +1,0 @@
-FROM node:lts-alpine
-LABEL org.opencontainers.image.authors="RESF Web Team <web@resf.org>"
-LABEL org.opencontainers.image.url="https://github.com/resf/pebble"
-LABEL org.opencontainers.image.vendor="RESF"
-LABEL org.opencontainers.image.licenses="BSD-3-Clause"
-
-WORKDIR /app
-
-CMD npm install && cd example && npm install && cd .. && (npm run start & npm run css:watch & (cd example && npm start))
